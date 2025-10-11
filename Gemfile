@@ -21,8 +21,10 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "chartkick"
-gem "groupdate"
+gem "chart-js-rails"
 gem "tailwindcss-rails"
+gem "groupdate"
+
 
 
 

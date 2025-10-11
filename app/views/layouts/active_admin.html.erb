@@ -10,6 +10,9 @@
     <%= stylesheet_link_tag "application.tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "active_admin_tailwind", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "chartkick", "chart.js", "data-turbo-track": "reload" %>
+
+    
   </head>
 
   <body class="min-h-screen flex flex-col font-sans text-gray-900 dark:text-gray-100">
@@ -46,21 +49,14 @@
     </footer>
 
     <!-- 🌙 Chartkick dark mode support -->
-    <script>
-document.addEventListener("turbo:load", () => {
-  const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (dark && window.Chartkick) {
-    Chartkick.options.library.backgroundColor = "transparent";
-    Chartkick.options.library.title.color = "#F3F4F6";
-    Chartkick.options.library.legend.labels.color = "#E5E7EB";
-    Chartkick.options.library.hAxis.textStyle.color = "#D1D5DB";
-    Chartkick.options.library.vAxis.textStyle.color = "#D1D5DB";
-    Chartkick.options.library.hAxis.gridlines.color = "rgba(75,85,99,0.2)";
-    Chartkick.options.library.vAxis.gridlines.color = "rgba(75,85,99,0.2)";
-  }
-});
+<script>
+  document.addEventListener("turbo:load", () => {
+    if (window.Chartkick) {
+      Chartkick.eachChart(chart => chart.update());
+    }
+  });
+</script>
 
-    </script>
 
     <style>
       @keyframes fadeIn {
