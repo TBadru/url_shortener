@@ -1,11 +1,26 @@
+// module.exports = {
+//   content: [
+//     './app/views/**/*.{erb,html,html.erb}',
+//     './app/helpers/**/*.rb',
+//     './app/javascript/**/*.{js,jsx,ts,tsx}'
+//   ],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [],
+// }
+
 module.exports = {
+  darkMode: 'media', // or 'class' if you prefer manual toggling
   content: [
-    './app/views/**/*.{erb,html,html.erb}',
-    './app/helpers/**/*.rb',
-    './app/javascript/**/*.{js,jsx,ts,tsx}'
+    './app/**/*.{html,erb,rb,js}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
