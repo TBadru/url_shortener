@@ -4,6 +4,9 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.2", ">= 8.0.2.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+
+gem "sprockets-rails"
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -17,6 +20,14 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "chartkick"
+gem "chart-js-rails"
+gem "tailwindcss-rails"
+gem "groupdate"
+
+
+
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -28,11 +39,20 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+gem "rack-attack"
+
+gem "devise"        # authentication (required by ActiveAdmin)
+gem "activeadmin"
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
+
+gem "sassc-rails"
+
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false

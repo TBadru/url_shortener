@@ -1,0 +1,11 @@
+//= link_tree ../images
+//= link_directory ../stylesheets .css
+//= link application.tailwind.css
+//= link active_admin.js
+//= link active_admin.css
+//= link active_admin.tailwind.css
+//= link active_admin_tailwind.css
+//= link_tree ../../javascript/controllers .js
+//= link_tree ../../../vendor/javascript .js
+//= link tailwind.css
+//= link application.js

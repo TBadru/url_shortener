@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   ActiveAdmin Tailwind Overrides
+========================= */
+
+/* Body */
+body.active_admin {
+  @apply bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans;
+}
+
+/* Header/navbar */
+.active_admin .header,
+.active_admin .header h1 {
+  @apply bg-blue-600 text-white shadow-lg p-4 text-2xl font-bold;
+}
+
+/* Navbar links */
+.active_admin .header .tabs li a {
+  @apply text-white font-semibold hover:text-yellow-400 transition;
+}
+
+/* Panels override */
+.active_admin .panel,
+.active_admin .panel.panel-gradient {
+  @apply rounded-xl shadow-lg p-6 mb-6 text-white !important;
+  background-size: 200% 200% !important;
+  background-image: linear-gradient(to right, #a78bfa, #f472b6, #f87171) !important;
+}
+
+/* Gradient animation */
+.panel-gradient {
+  animation: gradientShift 6s ease infinite !important;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Tables */
+.active_admin .index_as_table th,
+.active_admin .index_as_table td {
+  @apply px-4 py-2 border-b border-gray-200 dark:border-gray-700;
+}
+
+.active_admin .index_as_table tbody tr:hover {
+  @apply bg-purple-100 dark:bg-purple-800;
+}
+
+/* Action items/buttons */
+.active_admin .action_items a {
+  @apply bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-lg hover:bg-yellow-500 transition;
+}
+
+/* Flash messages */
+.active_admin .flash {
+  @apply text-center p-3 font-medium rounded-lg mb-4;
+}
+.active_admin .flash.notice {
+  @apply bg-green-100 text-green-800;
+}
+.active_admin .flash.alert {
+  @apply bg-red-100 text-red-800;
+}
+
+.panel-gradient {
+  @apply rounded-xl shadow-lg p-6 mb-6 text-white;
+  background-size: 200% 200%;
+  background-image: linear-gradient(to right, #a78bfa, #f472b6, #f87171);
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
