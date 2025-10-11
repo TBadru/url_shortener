@@ -1,0 +1,10 @@
+<h1>Shorten a URL</h1>
+
+<%= form_with model: @url, local: true do |form| %>
+  <div>
+    <%= form.label :original_url %><br>
+    <%= form.text_field :original_url, placeholder: "https://wwww.example.com" %>
+  </div>
+
+  <%= form.submit "Shorten" %>
+<% end %>

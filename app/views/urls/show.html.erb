@@ -1,0 +1,11 @@
+<h1>Your shortened URL</h1>
+
+<p>
+  Short link:
+  <%= link_to short_url(@url.slug), short_url(@url.slug) %>
+</p>
+
+<p>Original: <%= @url.original_url %></p>
+<p>Clicks: <%= @url.clicks %></p>
+
+<%= link_to "Shorten another", root_path %>
