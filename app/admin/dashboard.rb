@@ -40,18 +40,22 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-    # -------------------
-    # Recent Clicks Table
-    # -------------------
-    panel "Recent Clicks" do
-      table_for Click.order(created_at: :desc).limit(20) do
-        column :url do |click|
-          link_to click.url.slug, admin_url_path(click.url)
-        end
-        column :ip_address
-        column :referrer
-        column :created_at
+# -------------------
+# Recent Clicks Table
+# -------------------
+panel "Recent Clicks" do
+  table_for Click.order(created_at: :desc).limit(20) do
+    column :url do |click|
+      if click.url
+        link_to click.url.slug, admin_url_path(click.url)
+      else
+        "URL deleted"
       end
     end
+    column :ip_address
+    column :referrer
+    column :created_at
+  end
+end
   end
 end
