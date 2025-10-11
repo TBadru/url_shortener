@@ -22,6 +22,8 @@ gem "jbuilder"
 
 gem "chartkick"
 gem "groupdate"
+gem "tailwindcss-rails"
+
 
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]

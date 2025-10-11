@@ -1,21 +1,30 @@
-<h1>Shorten a URL</h1>
+<div class="max-w-xl mx-auto mt-12 bg-white dark:bg-gray-900 shadow-lg rounded-2xl p-8">
+  <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">
+    🔗 Shorten a URL
+  </h1>
 
-<%= form_with model: @url, local: true do |form| %>
-  <div>
-    <%= form.label :original_url %><br>
-    <%= form.text_field :original_url, placeholder: "https://example.com" %>
-  </div>
+  <%= form_with model: @url, local: true, class: "space-y-6" do |form| %>
+    <div>
+      <%= form.label :original_url, class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+      <%= form.text_field :original_url, placeholder: "https://example.com",
+            class: "mt-1 block w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500" %>
+    </div>
 
-  <div>
-    <%= form.label :slug, "Custom slug (optional)" %><br>
-    <%= form.text_field :slug, placeholder: "my-custom-link" %>
-  </div>
+    <div>
+      <%= form.label :slug, "Custom slug (optional)", class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+      <%= form.text_field :slug, placeholder: "my-custom-link",
+            class: "mt-1 block w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500" %>
+    </div>
 
-  <div>
-  <%= form.label :expires_at, "Expiration date (optional)" %><br>
-  <%= form.datetime_local_field :expires_at %>
+    <div>
+      <%= form.label :expires_at, "Expiration date (optional)", class: "block text-gray-700 dark:text-gray-300 font-medium" %>
+      <%= form.datetime_local_field :expires_at,
+            class: "mt-1 block w-full px-4 py-2 border rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500" %>
+    </div>
+
+    <div class="text-center">
+      <%= form.submit "Shorten",
+            class: "bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition" %>
+    </div>
+  <% end %>
 </div>
-
-
-  <%= form.submit "Shorten" %>
-<% end %>
