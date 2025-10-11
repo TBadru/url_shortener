@@ -9,3 +9,15 @@
 <p>Clicks: <%= @url.clicks %></p>
 
 <%= link_to "Shorten another", root_path %>
+
+<h2>Recent Clicks</h2>
+<ul>
+  <% @url.clicks.last(10).each do |click| %>
+    <li>
+      IP: <%= click.ip_address %> |
+      Referrer: <%= click.referrer || "Direct" %> |
+      Time: <%= click.created_at.strftime("%Y-%m-%d %H:%M") %>
+    </li>
+  <% end %>
+</ul>
+

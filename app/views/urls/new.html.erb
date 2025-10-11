@@ -3,8 +3,19 @@
 <%= form_with model: @url, local: true do |form| %>
   <div>
     <%= form.label :original_url %><br>
-    <%= form.text_field :original_url, placeholder: "https://wwww.example.com" %>
+    <%= form.text_field :original_url, placeholder: "https://example.com" %>
   </div>
+
+  <div>
+    <%= form.label :slug, "Custom slug (optional)" %><br>
+    <%= form.text_field :slug, placeholder: "my-custom-link" %>
+  </div>
+
+  <div>
+  <%= form.label :expires_at, "Expiration date (optional)" %><br>
+  <%= form.datetime_local_field :expires_at %>
+</div>
+
 
   <%= form.submit "Shorten" %>
 <% end %>

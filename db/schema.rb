@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_11_115801) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_11_122739) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "clicks", force: :cascade do |t|
+    t.bigint "url_id", null: false
+    t.string "ip_address"
+    t.string "referrer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["url_id"], name: "index_clicks_on_url_id"
+  end
 
   create_table "urls", force: :cascade do |t|
     t.string "original_url"
@@ -20,6 +29,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_11_115801) do
     t.integer "clicks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "expires_at"
     t.index ["slug"], name: "index_urls_on_slug"
   end
+
+  add_foreign_key "clicks", "urls"
 end
