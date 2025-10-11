@@ -353,5 +353,5 @@ ActiveAdmin.setup do |config|
 # Use Tailwind inside Active Admin
 config.register_stylesheet "active_admin_tailwind.css"
 
-  config.view_factory.layout = "active_admin"
+config.view_factory.layout = "active_admin"
 end

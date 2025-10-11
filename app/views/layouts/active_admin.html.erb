@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50 dark:bg-gray-900">
+  <head>
+    <meta charset="utf-8">
+    <title><%= content_for?(:title) ? yield(:title) : "Admin Dashboard" %> | URL Shortener</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- Tailwind & ActiveAdmin styles -->
+    <%= stylesheet_link_tag "application.tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "active_admin_tailwind", media: "all", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="min-h-screen flex flex-col font-sans text-gray-900 dark:text-gray-100">
+    <!-- 🔷 Navbar -->
+    <header class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white shadow-md sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+        <h1 class="text-xl font-bold tracking-wide">🚀 URL Shortener Admin</h1>
+        <nav class="space-x-4">
+          <%= link_to "Dashboard", admin_root_path, class: "px-3 py-1 rounded hover:bg-white/20 transition" %>
+          <%= link_to "URLs", admin_urls_path, class: "px-3 py-1 rounded hover:bg-white/20 transition" %>
+          <%= link_to "Clicks", admin_clicks_path, class: "px-3 py-1 rounded hover:bg-white/20 transition" %>
+          <%= link_to "Admin Users", admin_admin_users_path, class: "px-3 py-1 rounded hover:bg-white/20 transition" %>
+          <%= link_to "Sign Out", destroy_admin_user_session_path, method: :delete, class: "px-3 py-1 rounded hover:bg-white/20 transition" %>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 🌈 Flash Messages -->
+    <% flash.each do |type, msg| %>
+      <div class="max-w-7xl mx-auto mt-4 px-4 py-2 rounded-lg font-semibold text-center 
+        <%= type == 'notice' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' %>">
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <!-- 🧭 Main Content -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-6 space-y-6">
+      <%= yield %>
+    </main>
+
+    <!-- ⚙️ Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 text-gray-500 text-sm text-center py-4 border-t border-gray-200 dark:border-gray-700">
+      <p>© <%= Time.current.year %> URL Shortener — Admin Panel</p>
+    </footer>
+
+    <!-- 🌙 Chartkick dark mode support -->
+    <script>
+document.addEventListener("turbo:load", () => {
+  const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (dark && window.Chartkick) {
+    Chartkick.options.library.backgroundColor = "transparent";
+    Chartkick.options.library.title.color = "#F3F4F6";
+    Chartkick.options.library.legend.labels.color = "#E5E7EB";
+    Chartkick.options.library.hAxis.textStyle.color = "#D1D5DB";
+    Chartkick.options.library.vAxis.textStyle.color = "#D1D5DB";
+    Chartkick.options.library.hAxis.gridlines.color = "rgba(75,85,99,0.2)";
+    Chartkick.options.library.vAxis.gridlines.color = "rgba(75,85,99,0.2)";
+  }
+});
+
+    </script>
+
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeIn { animation: fadeIn 0.4s ease-in-out; }
+    </style>
+  </body>
+</html>

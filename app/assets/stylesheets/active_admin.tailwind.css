@@ -2,25 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optional: override ActiveAdmin styles */
 body.active_admin {
-  @apply bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100;
-}
-
-.active_admin .header,
-.active_admin .header h1 {
-  @apply text-gray-900 dark:text-gray-100;
-}
-
-.active_admin .index_as_table th,
-.active_admin .index_as_table td {
-  @apply px-4 py-2 border-b border-gray-200 dark:border-gray-700;
-}
-
-.active_admin .action_items a {
-  @apply bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition;
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
 }
 
 .active_admin .panel {
-  @apply bg-white dark:bg-gray-900 shadow rounded-lg p-4 mb-6;
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 border border-gray-100 dark:border-gray-700;
+}
+
+.active_admin .panel h3 {
+  @apply text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3;
+}
+
+.active_admin table {
+  @apply w-full border-collapse;
+}
+
+.active_admin th {
+  @apply bg-blue-50 dark:bg-gray-700 text-blue-900 dark:text-gray-200 px-3 py-2 text-left text-sm font-semibold;
+}
+
+.active_admin td {
+  @apply border-b border-gray-200 dark:border-gray-700 px-3 py-2 text-sm;
+}
+
+.active_admin .action_items a {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-md transition;
+}
+
+.active_admin .filters {
+  @apply bg-blue-100 dark:bg-gray-700 p-3 rounded-lg mb-4;
 }

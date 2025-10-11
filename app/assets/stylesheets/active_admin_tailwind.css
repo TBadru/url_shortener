@@ -2,111 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== 🎨 Tailwind-Powered ActiveAdmin Theme ===== */
+/* =========================
+   ActiveAdmin Tailwind Overrides
+========================= */
 
-/* Global styles */
+/* Base body styling */
 body.active_admin {
-  @apply bg-gradient-to-br from-sky-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 font-inter min-h-screen;
+  @apply bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans;
 }
 
-/* Header / Navbar */
-.active_admin .header {
-  @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-lg p-4 mb-6 rounded-b-lg;
-  transition: all 0.3s ease-in-out;
-}
-
+/* Header/navbar */
+.active_admin .header,
 .active_admin .header h1 {
-  @apply text-2xl font-semibold tracking-wide text-white;
+  @apply bg-blue-600 text-white shadow-lg p-4 text-2xl font-bold;
 }
 
-/* Sidebar */
-.active_admin .sidebar_section {
-  @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm p-4 mb-5;
+/* Navbar links */
+.active_admin .header .tabs li a {
+  @apply text-white font-semibold hover:text-yellow-400 transition;
 }
 
 /* Panels */
 .active_admin .panel {
-  @apply bg-white dark:bg-gray-900 shadow-lg rounded-2xl p-5 mb-8 border border-gray-100 dark:border-gray-800 transition-all hover:shadow-xl;
+  @apply rounded-xl shadow-lg p-6 mb-6 text-white;
+  background-size: 200% 200%;
 }
 
-.active_admin .panel h3 {
-  @apply text-lg font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600;
+/* Gradient animation for panels */
+.panel-gradient {
+  @apply bg-gradient-to-r from-purple-400 via-pink-400 to-red-400;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* Tables */
-.active_admin .index_as_table th {
-  @apply bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 text-gray-800 dark:text-gray-100 text-sm font-semibold uppercase tracking-wide p-3 border-b border-gray-200 dark:border-gray-700;
-}
-
+.active_admin .index_as_table th,
 .active_admin .index_as_table td {
-  @apply p-3 border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300;
+  @apply px-4 py-2 border-b border-gray-200 dark:border-gray-700;
 }
 
-.active_admin .index_as_table tr:hover {
-  @apply bg-blue-50 dark:bg-gray-800 transition;
+.active_admin .index_as_table tbody tr:hover {
+  @apply bg-purple-100 dark:bg-purple-800;
 }
 
-/* Buttons and links */
-.active_admin .action_items a,
-.active_admin a.button,
-.active_admin .table_actions a {
-  @apply inline-block bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-3 py-2 rounded-md text-sm font-semibold shadow hover:from-indigo-600 hover:to-blue-600 transition-all;
-}
-
-.active_admin .action_items a + a {
-  @apply ml-2;
-}
-
-/* Dashboard panels and charts */
-.active_admin .dashboard .panel {
-  @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg rounded-2xl p-5;
-}
-
-.active_admin .panel .attributes_table {
-  @apply text-sm;
+/* Action items/buttons */
+.active_admin .action_items a {
+  @apply bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-lg hover:bg-yellow-500 transition;
 }
 
 /* Flash messages */
 .active_admin .flash {
-  @apply rounded-md p-4 mb-6 font-medium;
+  @apply text-center p-3 font-medium rounded-lg mb-4;
 }
-
 .active_admin .flash.notice {
-  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 border border-green-200 dark:border-green-800;
+  @apply bg-green-100 text-green-800;
 }
-
 .active_admin .flash.alert {
-  @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100 border border-red-200 dark:border-red-800;
+  @apply bg-red-100 text-red-800;
 }
-
-/* Filters */
-.active_admin .filters {
-  @apply bg-white dark:bg-gray-900 rounded-lg shadow p-4 mb-6;
-}
-
-.active_admin .filters legend {
-  @apply text-base font-semibold mb-2 text-gray-800 dark:text-gray-100;
-}
-
-.active_admin .filters input,
-.active_admin .filters select {
-  @apply border border-gray-300 dark:border-gray-700 rounded-lg p-2 text-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400;
-}
-
-/* Footer */
-.active_admin .footer {
-  @apply mt-10 text-center text-gray-500 text-sm py-6 border-t border-gray-200 dark:border-gray-800;
-}
-
-/* Subtle card hover animation */
-.active_admin .panel:hover {
-  transform: translateY(-2px);
-  @apply shadow-xl;
-}
-
-/* Chartkick charts (make them pop) */
-.chartkick {
-  @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 
-         rounded-2xl p-5 shadow-lg border border-gray-100 dark:border-gray-800 transition-all hover:shadow-xl;
-}
-
