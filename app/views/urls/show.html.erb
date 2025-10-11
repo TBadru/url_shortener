@@ -1,29 +1,26 @@
-<h1>Your shortened URL</h1>
-
+<h2>Your shortened URL</h2>
 <p>
-  Short link:
-  <%= link_to short_url(@url.slug), short_url(@url.slug) %>
+  <strong>Short link:</strong>
+   <%= link_to short_url(@url.slug), short_url(@url.slug), target: "_blank" %>
 </p>
+<p><strong>Original link:</strong> <%= @url.original_url %></p>
+<p><strong>Clicks:</strong> <%= @url.clicks.count %></p>
 
-<p>Original: <%= @url.original_url %></p>
-<p>Clicks: <%= @url.clicks.count %></p>
+<hr>
 
-
-<%= link_to "Shorten another", root_path %>
-
-<h2>Recent Clicks</h2>
-<ul>
-  <% if @url.clicks.any? %>
-    <% @url.clicks.last(10).each do |click| %>
+<h3>Recent Clicks</h3>
+<% if @url.clicks.any? %>
+  <ul>
+    <% @url.clicks.order(created_at: :desc).limit(10).each do |click| %>
       <li>
         IP: <%= click.ip_address %> |
         Referrer: <%= click.referrer || "Direct" %> |
         Time: <%= time_ago_in_words(click.created_at) %> ago
       </li>
     <% end %>
-  <% else %>
-    <li>No clicks yet.</li>
-  <% end %>
-</ul>
+  </ul>
+<% else %>
+  <p>No clicks yet.</p>
+<% end %>
 
-
+<%= link_to "Shorten another", new_url_path, class: "btn btn-primary" %>
