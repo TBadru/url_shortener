@@ -60,7 +60,7 @@ A modern URL shortener built with **Ruby on Rails**, featuring an **ActiveAdmin 
     ```
 
 5. **Access the application**
-    - User interface: [http://localhost:3000/urls/new](http://localhost:3000/urls/new)
+    - User interface: [http://localhost:3000](http://localhost:3000)
     - Admin dashboard: [http://localhost:3000/admin](http://localhost:3000/admin)
 
     **Default Admin Credentials (if seeded):**
