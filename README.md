@@ -37,7 +37,7 @@ A modern URL shortener built with **Ruby on Rails**, featuring an **ActiveAdmin 
 
 1. **Clone the repository**
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/TBadru/url_shortener.git
     cd url_shortener
     ```
 
