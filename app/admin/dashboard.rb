@@ -1,9 +1,7 @@
 ActiveAdmin.register_page "Dashboard" do
   content title: "Admin Dashboard" do
     columns do
-      # -------------------
-      # Column 1: Top URLs
-      # -------------------
+      
       column do
         panel "🔥 Top 10 URLs by Clicks",
               class: "bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white rounded-xl shadow-lg p-6 mb-6" do
@@ -17,9 +15,6 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
 
-      # -------------------
-      # Column 2: Charts
-      # -------------------
       column do
         panel "📈 Clicks Per Day (Last 30 Days)",
               class: "bg-gradient-to-r from-green-400 via-teal-400 to-blue-500 text-white rounded-xl shadow-lg p-6 mb-6" do
@@ -53,9 +48,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-    # -------------------
-    # Recent Clicks Table
-    # -------------------
+
     panel "🖱️ Recent Clicks",
           class: "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-xl shadow-lg p-6" do
       table_for Click.order(created_at: :desc).limit(20),
