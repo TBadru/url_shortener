@@ -23,40 +23,6 @@ end
     @url = Url.find(params[:id])
   end
 
-# def redirect
-#   @url = Url.find_by(slug: params[:slug])
-#   if @url.nil?
-#     redirect_to root_path, alert: "URL not found"
-#   elsif @url.expired?
-#     redirect_to root_path, alert: "This link has expired"
-#   else
-#     @url.increment!(:clicks)
-#     @url.clicks.create(
-#       ip_address: request.remote_ip,
-#       referrer: request.referrer
-#     )
-#     redirect_to @url.original_url, allow_other_host: true
-
-#     LogClickJob.perform_later(@url.id, request.remote_ip, request.referrer)
-# redirect_to @url.original_url, allow_other_host: true
-
-#   end
-# end
-
-
-# def redirect
-#   @url = Url.find_by(slug: params[:slug])
-
-#   if @url.nil?
-#     redirect_to root_path, alert: "URL not found"
-#   elsif @url.expired?
-#     redirect_to root_path, alert: "This link has expired"
-#   else
-#     @url.increment!(:clicks)
-#     redirect_to @url.original_url, allow_other_host: true
-#   end
-# end
-
 def redirect
   @url = Url.find_by(slug: params[:slug])
 
